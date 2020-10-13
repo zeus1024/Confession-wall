@@ -26,8 +26,11 @@ cd vuepro（vuepro是我所在的文件夹名字）。
 
 5.安装axios。
 在对应的文件夹，使用命令行
-npm install axios
-安装axios。然后完成。
+
+1)：npm install
+2)：npm install vue-axios --save
+3)：npm install qs.js --save　　//它的作用是能把json格式的直接转成data所需的格式
+安装axios。相应的配置文件在Git上面。
 
 配置好以后，在对应文件夹输入
 npm run serve
