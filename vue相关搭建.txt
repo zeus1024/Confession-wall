@@ -1,0 +1,39 @@
+安装前须知：
+1.使用win+r，然后输入cmd，即可进入命令行模式。
+2.输入
+d:
+即可转入d盘。
+若要访问d盘的某一个文件夹，先转入d盘，然后输入
+cd vuepro（vuepro是我所在的文件夹名字）。
+3.安装的node以及vue尽量不要安装在C盘
+
+正文：
+1.安装node以及npm。
+访问https://nodejs.org/zh-cn/，下载v12版本，然后傻瓜式安装。安装时最好选择非C盘安装目录。
+2.使用命令行符号，查看是否安装成功。
+教程：https://www.liaoxuefeng.com/wiki/1022910821149312/1023025597810528
+
+3.安装vue3.0
+请先跳转到其他盘，不要在c盘安装。然后在该盘创建一个文件夹，放置vue项目。然后cd到该盘安装vue。
+使用npm安装。
+链接：https://blog.csdn.net/qq_43653325/article/details/85075392?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+能够启动项目即可成功。
+
+4.安装vant框架。
+先npm安装vant3。链接：https://github.com/youzan/vant/issues/7035
+然后使用方法一配置文件，链接：https://vant-contrib.gitee.io/vant/#/zh-CN/quickstart
+.babelrc在node_modules的babel-plugin-dynamic-import-node里面。
+
+5.安装axios。
+在对应的文件夹，使用命令行
+npm install axios
+安装axios。然后完成。
+
+配置好以后，在对应文件夹输入
+npm run serve
+即可运行
+可以通过local的网址在本地进行访问，也可以通过network的网址，在同一路由下均可以访问，如手机等。
+时间紧迫，不详细说了。
+完。
+
+
