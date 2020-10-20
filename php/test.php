@@ -3,23 +3,51 @@ class response{
 	public $code;
 	public $msg;
 	public $data;
+	
 }
 class t{
 	public $tid;
+	public $type;
 	public $title;
 	public $content;
 	public $poster;
 	public $date;
 	public $reply;
+	function bind_reply($retval)
+	{while($row = mysqli_fetch_assoc($retval))
+		{
+		   $reply=new reply;
+		   $reply->bind_reply($row);
+		   $this->reply[]=$reply;
+	
+		}
+		
+		
+	}
+	function bind_info($row)
+	{
+	$this->tid=$row['tid'];
+	$this->type=$row['type'];
+	$this->title=$row['title'];
+	$this->content=$row['content'];
+	if($row['hide_poster']) $this->poster="匿名用户";else $this->poster=$row['poster'];
+	$this->date=$row["date"];	
+	}
 }
 class reply{
 	public $content;
 	public $poster;
 	public $date;
+	function bind_reply($row)
+	{
+		$this->content=$row['content'];
+		$this->date=$row['date'];
+		if($row['hide_poster']) $this->poster="匿名用户";
+		else $this->poster=$row['poster'];
 	
+	}
 }
 $response=new response;
-$replylist=array();
 const dbhost = 'localhost:3306';  // mysql服务器主机地址
 const dbuser = 'gra';            // mysql用户名
 const dbpass = '35068';          // mysql用户名密码
@@ -37,34 +65,18 @@ if(!$proc) die("预处理失败");
 		$proc->bind_param("s",$tid);
 		$tid=1;
 		$proc->execute();
- 		$retval=$proc->get_result();
+ 		$retval_t=$proc->get_result();
 		$proc->close();
-while($row = mysqli_fetch_assoc($retval))
-{
-	$t=new t;
-	$t->tid=$row['tid'];
-	$t->title=$row['title'];
-	$t->content=$row['content'];
-	if($row['hide_poster']) $t->poster="匿名用户";else $t->poster=$row['poster'];
-	$t->date=$row["date"];	
-}
  $proc=$conn->prepare("SELECT * FROM reply where tid = ?;");
 if(!$proc) die("预处理失败");
 		$proc->bind_param("s",$tid);
 		$tid=1;
 		$proc->execute();
- 		$retval=$proc->get_result();
+ 		$retval_reply=$proc->get_result();
 		$proc->close();
-while($row = mysqli_fetch_assoc($retval))
-{
-	$reply=new reply;
-	$reply->content=$row['content'];
-	$reply->date=$row['date'];
-	if($row['hide_poster']) $reply->poster="匿名用户";
-	else $reply->poster=$row['poster'];
-	$replylist[]=$reply;
-}
-$t->reply=$replylist;
+$t=new t;
+$t->bind_reply($retval_reply);
+$t->bind_info($row=mysqli_fetch_assoc($retval_t));
 $response->code=1;$response->msg="success";$response->data=$t;
 echo json_encode($response,JSON_UNESCAPED_UNICODE);
 ?>
