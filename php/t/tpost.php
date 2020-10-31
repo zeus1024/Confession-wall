@@ -3,7 +3,7 @@ include_once('../function.php');
 include_once('../dbconfig.php');
 include_once('../class_response.php');
 $re=new response;
-if(!checklogin()) $re->setf(0,"用户未登录");
+if(!checklogin()) $re->setf(2,"用户未登录");
 $poster=$_SESSION['user'];
 $title=$_GET['title'];
 $content=$_GET['content'];
