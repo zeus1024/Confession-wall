@@ -3,7 +3,7 @@ include_once('../function.php');
 include_once('../dbconfig.php');
 include_once('../class_response.php');
 $re=new response;
-if(!checklogin()) $re->setf(0,"用户未登录");
+if(!checklogin()) $re->setf(2,"用户未登录");
 if($_GET['password1']=="" or $_GET['password2']=="") $re->setf(0,"原密码或新密码未输入");
 $username=$_SESSION['user'];
 $conn=db_init();
