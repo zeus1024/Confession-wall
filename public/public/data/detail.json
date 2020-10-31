@@ -1,0 +1,11 @@
+{"code":1,"msg":"success",
+	"data":
+	[{"tid":1,"type":1,"title":"test","content":"1234","poster":"lyh","date":"2020-10-14 17:04:58",
+		"reply":[{"rid":1,"content":"reply","poster":"测试账号1","date":"2020-10-13 21:13:53"},
+			{"rid":2,"content":"reply2","poster":"匿名用户","date":"2020-10-13 21:13:53"},
+			{"rid":3,"content":"reply3","poster":"lyh","date":"2020-10-13 21:15:52"}]},
+{"tid":2,"type":1,"title":"test2","content":"1234","poster":"lyh","date":"2020-10-14 17:04:58",
+		"reply":[{"rid":1,"content":"reply","poster":"测试账号1","date":"2020-10-13 21:13:53"},
+			{"rid":2,"content":"reply2","poster":"匿名用户","date":"2020-10-13 21:13:53"},
+			{"rid":3,"content":"reply3","poster":"lyh","date":"2020-10-13 21:15:52"}]}
+	]}
