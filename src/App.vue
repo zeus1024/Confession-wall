@@ -1,32 +1,10 @@
 <template>
   <div id="nav">
-   <Home></Home>
-   
+    <router-link to="/"></router-link>
 
-    <!-- 使用路由 -->
   </div>
-<!-- 路由匹配到的组件将显示在这里 -->
-
-  <!-- <router-view /> -->
+  <router-view />
 </template>
-<script >
-  import Home from './views/Home.vue'
-
-export default
-{
-  name:'APP',
-  components:{
-Home,
-  },
- data () {
-    return {
-      
-    }
-  },
-  computed: {},
-  created () {},
-}
-</script>
 
 <style lang="less">
 #app {
