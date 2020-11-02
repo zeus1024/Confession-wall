@@ -15,5 +15,5 @@ if(!$proc)  $re->setf(0,"预处理失败！");
 		$proc->close();
 $res=mysqli_num_rows($retval);
 if(!$res) {$re->sets(1);$re->out();}
-else $re->setf(0,"该用户名已被注册！");
+else $re->setf(5,"该用户名已被注册！");
 ?>
