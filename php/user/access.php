@@ -16,7 +16,7 @@ if(!$proc)  $re->setf(0,"预处理失败！");
 
 	
 $res=mysqli_num_rows($retval);
-if(! $res ) $re->setf(0,"用户未注册！");
+if(! $res ) $re->setf(3,"用户未注册！");
 $row = mysqli_fetch_assoc($retval);
 
 if (password_verify($password,$row[pswhash]))
@@ -33,7 +33,7 @@ if (password_verify($password,$row[pswhash]))
 }
 else
 {
-	$re->setf(0,"用户名或密码错误");
+	$re->setf(4,"用户名或密码错误");
 }
 
 
