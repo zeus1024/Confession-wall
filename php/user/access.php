@@ -19,7 +19,7 @@ $res=mysqli_num_rows($retval);
 if(! $res ) $re->setf(3,"用户未注册！");
 $row = mysqli_fetch_assoc($retval);
 
-if (password_verify($password,$row[pswhash]))
+if (password_verify($password,$row['pswhash']))
 {   
 	$auth=date("YmdHis").rand(1,999);
 	$sql = "UPDATE udb SET cookie = '$auth' WHERE usn='$username' " ;
