@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import Post_detail from "../views/Post_detail.vue";
+import Addposts from "../views/Addposts.vue";
+import UserInformation from "../views/UserInformation.vue";
 // 修改页面路由
 
 const routes = [
@@ -7,6 +10,25 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
+    // 引入页面路由
+  },
+
+  {
+    path: "/Post_detail/:post_id",
+    name: "Post_detail",
+    component: Post_detail
+    // 引入页面路由
+  },
+  {
+    path: "/Addposts/:user_id",
+    name: "Addposts",
+    component: Addposts
+    // 引入页面路由
+  },
+   {
+    path: "/UserInformation/:user_id",
+    name: "UserInformation",
+    component: UserInformation
     // 引入页面路由
   },
 

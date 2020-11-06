@@ -1,4 +1,4 @@
-# pro2
+# pro
 
 ## Project setup
 ```
