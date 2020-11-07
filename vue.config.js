@@ -1,15 +1,35 @@
-//在根目录下创建vue.config.js,如下配置：
 module.exports = {
     devServer: {
-      proxy: {  
-        '/api': {
-          target: 'http://localhost:8080', //路径指向本地主机地址及端口号
-          ws: true, 
-          changeOrigin: true,
-          pathRewrite:{
-              '^/api': '/data' //路径转发代理
-          }
-        }
+    open: true,
+    // disableHostCheck: false,
+    port: 8081,
+    https: false,
+    host: '0.0.0.0',
+    // public: '192.168.1.193',
+    https: false,
+    disableHostCheck: true,
+    open: false, // 配置自动启动浏览器
+    // hotOnly: false,
+    
+    // 静态资源文件夹
+    // assetsSubDirectory: 'static',
+    
+    // 发布路径
+    // assetsPublicPath: '/',   这里有错
+    
+    // 代理配置表，在这里可以配置特定的请求代理到对应的API接口
+    // 例如将'localhost:8080/api/xxx'代理到'www.example.com/api/xxx'
+    // 使用方法：https://vuejs-templates.github.io/webpack/proxy.html
+    proxy: {
+      '/api': {
+        target: 'http://49.235.83.66:39866', // 接口的域名
+        // secure: false,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+        pathRewrite: {
+          '^/api': '/php'
+        }   
       }
-    }
-  }
+    },
+        
+    },
+};
