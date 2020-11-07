@@ -1,13 +1,17 @@
 <template>
-		<div class="posts">
+		<div class="Mylist">
+<div>
+	<Navbar></Navbar>
+</div>
     <div>
+
       <van-tabs v-model="active" swipeable  @click="changetab">
   <van-tab v-for="item in posttype" 
   :key="item.tid"
   :title="item.type"
 >
      <ul>
-      <li v-for="item in postdata" 
+      <li v-for="item in mypost" 
       :key="item.tid">
       <router-link :to="{
                    name:'Post_detail',
@@ -35,26 +39,23 @@
 </template>
 
 <script >
- 
+ import axios from 'axios';
+ import { Dialog } from 'vant';
+ import Navbar from '../components/Navbar.vue';
+
 	export default {
-  name: "Posts",
+  name: "Mylist",
   components: {
+  	Navbar,
     
-  },
-  props:{
-    postdata:{
-      type:Array,
-      default(){
-        return  null;
-      }
-    }
-
-
   },
   data()
   {
     return{
       active:0,
+       
+     mypost:'',
+     code:'',
     posttype:[
     {
       type:"全部",
@@ -76,13 +77,44 @@
 
   }
 },
-  
+  created(){
+// 服务器版本
+    axios.get('/api/t/getmylist.php',{ 
+    withCredentials:true,      // 还可以直接把参数拼接在url后边
+        
+    }).then(res=>{
+      
+        this.mypost = res.data.data;
+        this.code= res.data.code;
+        if(this.code==0)
+        {
+        	Dialog.confirm({
+  title: '出错了！！！',
+  message: '是否重新获取我的帖子？',
+})
+  .then(() => {
+    	this.$router.push({name:'Mylist'})
+
+    // on confirm
+  })
+  .catch(() => {
+  	    	this.$router.push({name:'UserInformation'})
+
+    // on cancel
+  });
+        }
+      // 加上then，res.data就是数据
+    }).catch(error => {
+        console.log(error);
+    });
+},
         computed: {
           currentTabComponent: function() {
             return this.currentTab;
           }
         }, 
          methods: {
+         
    changetab(name){
       this.active=name;
      

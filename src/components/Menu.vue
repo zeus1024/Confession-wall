@@ -2,25 +2,15 @@
 	<div  >
 		<div @tabname="changetab">
 
-<van-tabbar  class="tabbar" v-model="active" @change="onChange">
-<router-link :to="{
-                   name:'Home',
-                   params:{user_id:id}
-                 }">
-  <van-tabbar-item name="Posts" icon="home-o">帖子</van-tabbar-item></router-link>
-
-  <router-link :to="{
+<van-tabbar route  class="tabbar" v-model="active" @change="onChange">
+  <van-tabbar-item replace :to ="{name:'Home',params:{user_id:id}}" name="Posts" icon="home-o">帖子</van-tabbar-item>
+  <van-tabbar-item replace :to="{
                    name:'Addposts',
                    params:{user_id:id}
-                 }">
-  <van-tabbar-item name="Addposts" icon="search">发帖+</van-tabbar-item>
-</router-link>
-  <router-link :to="{
+                 }" name="Addposts" icon="search">发帖+</van-tabbar-item>
+  <van-tabbar-item replace :to="{
                    name:'UserInformation',
-                   params:{user_id:id}
-                 }">
-  <van-tabbar-item name="UserInformation" icon="friends-o">我</van-tabbar-item>
-</router-link>
+                   params:{user_id:id}}" name="UserInformation" icon="friends-o">我</van-tabbar-item>
 </van-tabbar>
   </div>
   

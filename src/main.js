@@ -10,30 +10,39 @@ import { Field } from 'vant';
 import { Picker } from 'vant';
 import { Toast } from 'vant';
 import { Popup } from 'vant';
+import { Dialog } from 'vant';
+import { Checkbox, CheckboxGroup } from 'vant';
 import { Cell, CellGroup } from 'vant';
-
-import axios from 'axios';
+import { NavBar } from 'vant';
+import { Icon } from 'vant';
+import { ActionSheet } from 'vant';
+import axios from 'axios'; // 让ajax携带cookie
 import VueAxios from 'vue-axios';
 import qs from 'qs';
-
+// axios.defaults.withCredentials = true;
 
 createApp(App)
 
   .use(router)
- 
+ .use(Checkbox)
+.use(CheckboxGroup)
   .use(Button)
   .use(Tabbar)
+.use(NavBar)
    .use(TabbarItem)
     .use(Field)
     .use(Toast)
+    .use(Icon)
     .use(Picker)
     .use(Popup)
   .use(Skeleton)
   .use(Tab)
   .use(Tabs)
+  .use(ActionSheet)
   .use(Cell)
+  .use(Dialog)
 .use(CellGroup)
   .use(qs)
   .use(VueAxios, axios)
-
+  
   .mount("#app");
