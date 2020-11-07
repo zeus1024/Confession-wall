@@ -79,6 +79,19 @@ data(){
   title: '恭喜！！！',
   message: '注册成功！！！',
 }).then(() => {
+        this.$router.push({name:'Home'})
+
+  // on close
+});
+    }
+    if(this.code==0)
+    {
+      Dialog.alert({
+  title: '抱歉',
+  message: '注册失败',
+}).then(() => {
+       
+
   // on close
 });
     }

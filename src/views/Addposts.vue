@@ -21,7 +21,7 @@
   autosize
   label="留言"
   type="textarea"
-  maxlength="50"
+  maxlength="5000"
   placeholder="请输入留言"
   show-word-limit
 /></div>
@@ -171,6 +171,14 @@ else{this.post_axios()}
   message: '发送成功',
 }).then(() => {
   this.$router.push({name:'Home'});
+// on close
+});
+    }
+    if(this.code==0)
+    {
+      Dialog.alert({
+  message: '发送失败',
+}).then(() => {
 // on close
 });
     }

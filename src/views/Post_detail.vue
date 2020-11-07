@@ -57,16 +57,9 @@
     <ul>
        <li v-for="item in  post.reply"
        :key="item.rid">
-       <span>发帖用户：{{item.poster}}</span>
+       <span>回复用户：{{item.poster}}</span>
        <p>内容：{{item.content}}</p>
        <p>日期：
-
-
-
-
-
-
-
        {{item.date}}</p>
        
         </li>
