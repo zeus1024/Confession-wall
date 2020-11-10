@@ -1,3 +1,4 @@
+<!-- 上面的发挥导航栏组件 -->
 <template>
 <van-nav-bar
   title="华工表白墙"

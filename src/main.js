@@ -16,33 +16,33 @@ import { Cell, CellGroup } from 'vant';
 import { NavBar } from 'vant';
 import { Icon } from 'vant';
 import { ActionSheet } from 'vant';
-import axios from 'axios'; // 让ajax携带cookie
+import axios from 'axios'; 
 import VueAxios from 'vue-axios';
 import qs from 'qs';
 // axios.defaults.withCredentials = true;
 
 createApp(App)
 
-  .use(router)
- .use(Checkbox)
+.use(router)
+.use(Checkbox)
 .use(CheckboxGroup)
-  .use(Button)
-  .use(Tabbar)
+.use(Button)
+.use(Tabbar)
 .use(NavBar)
-   .use(TabbarItem)
-    .use(Field)
-    .use(Toast)
-    .use(Icon)
-    .use(Picker)
-    .use(Popup)
-  .use(Skeleton)
-  .use(Tab)
-  .use(Tabs)
-  .use(ActionSheet)
-  .use(Cell)
-  .use(Dialog)
+.use(TabbarItem)
+.use(Field)
+.use(Toast)
+.use(Icon)
+.use(Picker)
+.use(Popup)
+.use(Skeleton)
+.use(Tab)
+.use(Tabs)
+.use(ActionSheet)
+.use(Cell)
+.use(Dialog)
 .use(CellGroup)
-  .use(qs)
-  .use(VueAxios, axios)
-  
-  .mount("#app");
+.use(qs)
+.use(VueAxios, axios)
+
+.mount("#app");
