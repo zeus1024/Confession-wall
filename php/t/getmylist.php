@@ -7,7 +7,7 @@ $re=new response;
 if(!checklogin()) $re->setf(2,"用户未登录");
 $username=$_SESSION['user'];
 if(!$conn=db_init()) $re->setf(0,mysqli_connect_error($conn));
-$proc=$conn->prepare('SELECT tid,type,title,poster,date FROM t WHERE poster = ? ORDER BY tid;');
+$proc=$conn->prepare('SELECT tid,type,title,poster,date,content FROM t WHERE poster = ? ORDER BY tid;');
 if(!$proc)  $re->setf(0,"预处理失败！");
 		$proc->bind_param("s",$username);
 		$proc->execute();
