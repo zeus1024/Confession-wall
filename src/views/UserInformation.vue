@@ -60,7 +60,7 @@
     
     cancellation()
     {
-      axios.post('/api/user/logout.php',{
+      axios.post('/php/user/logout.php',{
         withCredentials:true,
       }).then(res=>{
         this.code=res.data.code;
@@ -81,7 +81,7 @@
 
   created(){
 
-    axios.get('/api/user/userquery.php',{       // 还可以直接把参数拼接在url后边
+    axios.get('/php/user/userquery.php',{       // 还可以直接把参数拼接在url后边
       withCredentials:true,
     }).then(res=>{ 
       this.code = res.data.code;

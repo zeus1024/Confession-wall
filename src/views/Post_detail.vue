@@ -1,6 +1,6 @@
 <!-- 帖子详情页 -->
 <template>
-  <div>
+  <div >
     <div>
       <!-- 帖子上面的导航栏 -->
       <van-nav-bar
@@ -90,7 +90,7 @@
     created(){
      this.getRouterData();
  // 服务器使用axios
-    axios.get('/api/t/getdetail.php',{       // 还可以直接把参数拼接在url后边
+    axios.get('/php/t/getdetail.php',{       // 还可以直接把参数拼接在url后边
       params:{
         tid:this.post_id,
       }
@@ -126,7 +126,7 @@
   },
   delete_post()
   {
-axios.get('/api/t/delete.php',{       // 还可以直接把参数拼接在url后边
+axios.get('/php/t/delete.php',{       // 还可以直接把参数拼接在url后边
   withCredentials:true,
   params:{
     tid:this.post_id,
@@ -156,7 +156,7 @@ axios.get('/api/t/delete.php',{       // 还可以直接把参数拼接在url后
 
 },
 check_sign(){
-axios.get('/api/user/userquery.php',{       // 还可以直接把参数拼接在url后边
+axios.get('/php/user/userquery.php',{       // 还可以直接把参数拼接在url后边
   withCredentials:true,
 }).then(res=>{ 
   this.code = res.data.code;
@@ -208,14 +208,14 @@ axios.get('/api/user/userquery.php',{       // 还可以直接把参数拼接在
      };
    },
    post_axios(){
-axios.get('/api/t/rpost.php',{       // 还可以直接把参数拼接在url后边
-  params:{
-    tid:this.post_id,
-    content:this.input_reply,
-    hp:this.hp,
+    let data = new FormData();
+data.append('tid',this.post_id);
+data.append('content',this.input_reply);
+data.append('hp',this.hp);
 
-  }
-}).then(res=>{
+axios.post('/php/t/rpost.php',
+data,
+).then(res=>{
   this.code = res.data.code;
   Dialog.alert({
     message: '回复成功',
@@ -242,5 +242,6 @@ computed: {},
 <style type="text/css">
 .return_post{
 	font-size: 10px;
+
 }	
 </style>

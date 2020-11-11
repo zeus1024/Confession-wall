@@ -47,13 +47,12 @@
 else{this.changepassword()}
 },
 changepassword(){
-   axios.get('/api/user/pwdchange.php',{       // 还可以直接把参数拼接在url后边
-   	withCredentials:true,
-   	params:{
-   		password1:this.oldword,
-   		password2:this.newword,
-   	}
-   }).then(res=>{ 
+	let data = new FormData();
+data.append('password1',this.oldword);
+data.append('password2',this.newword);
+   axios.post('/php/user/pwdchange.php',
+   data,
+   ).then(res=>{ 
    	this.code = res.data.code;
  
    	if (this.code==1)

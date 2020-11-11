@@ -60,7 +60,7 @@
   methods:{
     check_name()
     {
-      axios.get('/api/user/r_check.php', {
+      axios.get('/php/user/r_check.php', {
         withCredentials:true,
         params:{
           username: this.input_name,}
@@ -78,12 +78,11 @@
       },
       register()
       { 
-       axios.get('/api/user/resister.php', {
-        withCredentials:true,
-        params:{
-          username: this.input_name,
-          password: this.input_password,}
-        }).then(res=>{
+        let data = new FormData();
+data.append('username',this.input_name);
+data.append('password',this.input_password);
+       axios.post('/php/user/resister.php', 
+        data,).then(res=>{
          this.code = res.data.code;
          this.username = res.data.data;
          if(this.code==1)

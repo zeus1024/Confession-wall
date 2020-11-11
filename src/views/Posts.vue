@@ -25,10 +25,10 @@
             <div> 头像：<img src="../assets/logo.png"></div>
             <!-- 头像可以注释掉 -->
             <span>发帖人：{{item.poster}}</span>
-            <h2>标题：{{item.title}}</h2>
+            <h2>{{item.title}}</h2>
             <!-- 是否显示发帖内容 -->
             <div v-show="show_content==true">
-              <p>发帖内容：{{item.content}}</p>
+              <p >发帖内容：{{item.content}}</p>
             </div>
             <p>类型：{{posttype[item.type].type}}</p>
             <p>日期：{{item.date}}</p>

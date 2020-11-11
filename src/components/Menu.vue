@@ -1,6 +1,6 @@
 <!-- 下面的主菜单栏组件 -->
 <template>
-	<div  >
+	<div>
 		<div @tabname="changetab">
       <van-tabbar route  class="tabbar" v-model="active" @change="onChange">
 <!-- 望文生义 -->

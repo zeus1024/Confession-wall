@@ -81,7 +81,7 @@
 		},
 		created(){
 // 服务器版本
-axios.get('/api/t/getmylist.php',{ 
+axios.get('/php/t/getmylist.php',{ 
     withCredentials:true,      // 还可以直接把参数拼接在url后边
 
 }).then(res=>{

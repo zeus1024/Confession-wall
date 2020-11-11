@@ -4,9 +4,9 @@
    <div>
     <Navbar></Navbar>
   </div>
-   <div></div>
-   <div>
-<!-- 输入用户名和密码 -->
+  <div></div>
+  <div>
+    <!-- 输入用户名和密码 -->
     <van-cell-group>
       <van-field
       v-model="input_name"
@@ -52,6 +52,7 @@
   created(){
   },
   methods:{
+   
   	sign_in()
   	{ 
   		if(this.input_password=='' || this.input_name=='')
@@ -64,44 +65,43 @@
   })
 
       }
-  axios.get('/api/user/access.php',{       // 还可以直接把参数拼接在url后边
-    withCredentials:true,
-    params:{
-      username: this.input_name,
-      password: this.input_password,
-
-    }
-  }).then(res=>{
+      let data = new FormData();
+      data.append('username',this.input_name);
+      data.append('password',this.input_password);
+  axios.post('/php/user/access.php',       // 还可以直接把参数拼接在url后边
+   
+   data,
+   ).then(res=>{
     this.username = res.data.data;
     this.code = res.data.code;
-        if(this.code==1)
-        {
-          Dialog.alert({
-            message: '登录成功',
-          }).then(() => {
-            this.$router.go(-1);
+    if(this.code==1)
+    {
+      Dialog.alert({
+        message: '登录成功',
+      }).then(() => {
+        this.$router.go(-1);
     // on confirm
   })
-        }
-        if(this.code==3)
-        {
-          Dialog.alert({
-            message: '该用户名还没有注册,是否前往注册',
-          }).then(() => {
-            this.$router.push({name:'Register'})
-            .catch(() => {
+    }
+    if(this.code==3)
+    {
+      Dialog.alert({
+        message: '该用户名还没有注册,是否前往注册',
+      }).then(() => {
+        this.$router.push({name:'Register'})
+        .catch(() => {
 
-            });
+        });
     // on confirm
   })
-        }
-        if(this.code==4)
-        {
-          Dialog.alert({
-            message: '用户名或者密码错误',
-          }).then(() => {
-            return;
-          });
+    }
+    if(this.code==4)
+    {
+      Dialog.alert({
+        message: '用户名或者密码错误',
+      }).then(() => {
+        return;
+      });
     // on confirm
 
   }
@@ -112,7 +112,7 @@
     message: error,
   }).then(() => {
     return;
-}); 
+  }); 
 });
 }
 }

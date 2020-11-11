@@ -37,7 +37,7 @@
   // created:vue生命周期中的钩子函数，在这个时间点，data中的数据已经注入到响应式系统中
   created(){
 // 服务器版本
-axios.get('/api/t/getlist.php',{ 
+axios.get('/php/t/getlist.php',{ 
     withCredentials:true,      // 还可以直接把参数拼接在url后边
     params:{
      num:'50',

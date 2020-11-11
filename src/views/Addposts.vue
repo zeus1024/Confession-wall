@@ -77,7 +77,7 @@
       },
       created(){
 
-    axios.get('/api/user/userquery.php',{       // 还可以直接把参数拼接在url后边
+    axios.get('/php/user/userquery.php',{       // 还可以直接把参数拼接在url后边
 
     }).then(res=>{ 
       this.code = res.data.code;
@@ -157,50 +157,48 @@
                 {i++;}
               if(this.columns[i]==this.value)
                 {this.post.type=++i;}
-              axios.get('/api/t/tpost.php',{ 
-          withCredentials:true,      // 还可以直接把参数拼接在url后边
-          params:{
-            title:this.post.title,
-            content:this.post.content,
-            type:this.post.type,
-            hp:this.post.hp,
-
-          }
-        }).then(res=>{
-         
-          this.code = res.data.code;
-          
-          if(this.code == 1){
-            Dialog.alert({
-              message: '发送成功',
-            }).then(() => {
-              this.$router.push({name:'Home'});
+              let data = new FormData();
+              data.append('title',this.post.title);
+              data.append('content',this.post.content);
+              data.append('type',this.post.type);
+              data.append('hp',this.post.hp);
+              axios.post('/php/t/tpost.php',
+                data,
+                ).then(res=>{
+                 
+                  this.code = res.data.code;
+                  
+                  if(this.code == 1){
+                    Dialog.alert({
+                      message: '发送成功',
+                    }).then(() => {
+                      this.$router.push({name:'Home'});
 // on close
 });
-          }
-          if(this.code==0)
-          {
-            Dialog.alert({
-              message: '发送失败',
-            }).then(() => {
+                  }
+                  if(this.code==0)
+                  {
+                    Dialog.alert({
+                      message: '发送失败',
+                    }).then(() => {
 // on close
 });
+                  }
+                }).catch(error => {
+                 Dialog.alert({
+                  title: '网路错误',
+                  message: error,
+                }).then(() => {
+                  return;
+                }); 
+              });
+              },
+
+            },
+
+
           }
-        }).catch(error => {
-         Dialog.alert({
-          title: '网路错误',
-          message: error,
-        }).then(() => {
-          return;
-        }); 
-      });
-      },
 
-    },
-
-
-  }
-
-</script>
-<style type="text/css">
-</style>
+        </script>
+        <style type="text/css">
+      </style>
