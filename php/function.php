@@ -14,6 +14,11 @@ function innum($name,$default)
 	if(!is_numeric($tar=$_GET[$name])) $tar=$default;
 	return $tar;
 }
+function innump($name,$default)
+{
+	if(!is_numeric($tar=$_POST[$name])) $tar=$default;
+	return $tar;
+}
 function quitjs($str)
 {
 	$search = array ("'<script[^>]*?>.*?</script>'si", // 去掉 javascript
@@ -31,11 +36,11 @@ return $str;
 }
 function loginproc(&$username,&$password)
 {
-	if($_GET['username']=="" or $_GET['password']=="")  {return 0;}
+	if($_POST['username']=="" or $_POST['password']=="")  {return 0;}
 	else
 	{
-	 $username=quitjs($_GET['username']);
-	 $password=$_GET['password'];
+	 $username=quitjs($_POST['username']);
+	 $password=$_POST['password'];
 	 return 1;
 	}
 	
