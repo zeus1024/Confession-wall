@@ -7,7 +7,7 @@ $re=new response;
 if(!$conn=db_init()) $re->setf(0,mysqli_connect_error($conn));
 $num=innum('num',10);
 $offset=innum('offset',0);
-$proc=$conn->prepare("SELECT tid,type,title,poster,date FROM t ORDER BY tid LIMIT ?,? ;");
+$proc=$conn->prepare("SELECT tid,type,title,poster,date,content,hide_poster FROM t ORDER BY tid DESC LIMIT ?,? ;");
 if(!$proc)  $re->setf(0,"预处理失败！");
 		$proc->bind_param("ii",$offset,$num);
 		$proc->execute();
