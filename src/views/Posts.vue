@@ -32,7 +32,9 @@
               <div class="poster">{{item.poster}}</div>
               <div class="date">发帖于{{item.date}}</div>
               </div>
-              <div class="type">{{posttype[item.type].type}}</div>
+           
+              <van-tag  class="type" round type="primary">{{posttype[item.type].type}}</van-tag>
+
             </div>
             <!-- 头像可以注释掉 -->
             

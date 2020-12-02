@@ -11,6 +11,7 @@ import { Picker } from 'vant';
 import { Toast } from 'vant';
 import { Popup } from 'vant';
 import { Dialog } from 'vant';
+import { Tag } from 'vant';
 import { Checkbox, CheckboxGroup } from 'vant';
 import { Cell, CellGroup } from 'vant';
 import { NavBar } from 'vant';
@@ -38,6 +39,7 @@ createApp(App)
 .use(Skeleton)
 .use(Tab)
 .use(Tabs)
+.use(Tag)
 .use(ActionSheet)
 .use(Cell)
 .use(Dialog)
