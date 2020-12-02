@@ -1,0 +1,72 @@
+.return_post{
+   font-size: 3rem;
+ }	
+
+.circle{
+    width:4rem;
+    height:4rem;
+    background-color: gray;
+    position: fixed;
+    border-radius: 30%;
+    left: 10%;
+    top: 10%;
+    font-size: 20px;
+    text-align: center;
+    font-family:NSimSun
+  }
+
+ .touxiang{
+
+   width: 400px;
+   height: 80px;
+   margin-top: 40px;
+   
+
+ }
+
+ .yonghuming{
+   position: fixed;
+   width: 6rem;
+   height: 4rem;
+   left: 40%;
+   top: 10%;
+ }
+
+  .box1{
+    width: 42%;
+    color: blue;
+    font-family:NSimSun;
+    position:fixed;
+    top: 30%;
+    left: 29%;
+    right: 29%;
+  }
+
+   .box2{
+    width: 42%;
+    color: blue;
+    font-family:NSimSun;
+    position:fixed;
+    top: 48%;
+    left: 29%;
+    right: 29%;
+  }
+
+   .box3{
+    width: 42%;
+    color: blue;
+    font-family:NSimSun;
+    position:fixed;
+    top: 66%;
+    left: 29%;
+    right: 29%;
+  }
+ 
+  .background-userinformation{
+    height: 100%;
+    width: 100%;
+    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
+    position: fixed;
+    background-size: cover;
+  }
+  

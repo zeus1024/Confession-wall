@@ -7,18 +7,29 @@
       <!-- 用户已经登录的显示页面 -->
       <div style="font-size: 1px;text-align:center;color: gray;margin-top: 10px;">华南理工大学  South  China  University  of Technology</div>
       <div v-if="this.code==1">
-      
+      <van-cell>
        <div class="touxiang">
          <div class="circle">头像</div>
          <div class="yonghuming"><p style="font-family:NSimSun"> 用户名为：{{name}}</p></div>
        </div>
-
-
-       
-       <div class="operate">
+</van-cell>
+<!-- <van-cell>
+    <div >头像</div>
+         <div ><p style="font-family:NSimSun"> 用户名为：{{name}}</p></div>
+</van-cell>
+        -->
+     <!--   <div class="operate">
        <van-button  class="box1" round type="info" :to="{name:'Changepassword'}">修改密码</van-button>
        <van-button  class="box2" round type="info" :to="{name:'Mylist'}">我的帖子</van-button>
        <van-button  class="box3" round type="info" @click="cancellation">注销登录</van-button>
+       </div> -->
+       <div>
+   <van-cell-group >
+  <van-cell class="operate" title="我的帖子" :to="{name:'Mylist'}"></van-cell>
+  <van-cell title="修改密码" :to="{name:'Changepassword'}"></van-cell>
+   <van-cell title="注销登录" @click="cancellation"></van-cell>
+    <van-cell title="关于我们" ></van-cell>
+</van-cell-group>
        </div>
       
 
@@ -114,73 +125,6 @@
    }
  </script>
 
- <style >
-.circle{
-    width:4rem;
-    height:4rem;
-    background-color: gray;
-    position: fixed;
-    border-radius: 30%;
-    left: 10%;
-    top: 10%;
-    font-size: 20px;
-    text-align: center;
-    font-family:NSimSun
-  }
-
- .touxiang{
-
-   width: 400px;
-   height: 80px;
-   margin-top: 40px;
-   
-
- }
-
- .yonghuming{
-   position: fixed;
-   width: 6rem;
-   height: 4rem;
-   left: 40%;
-   top: 10%;
- }
-
-  .box1{
-    width: 42%;
-    color: blue;
-    font-family:NSimSun;
-    position:fixed;
-    top: 30%;
-    left: 29%;
-    right: 29%;
-  }
-
-   .box2{
-    width: 42%;
-    color: blue;
-    font-family:NSimSun;
-    position:fixed;
-    top: 48%;
-    left: 29%;
-    right: 29%;
-  }
-
-   .box3{
-    width: 42%;
-    color: blue;
-    font-family:NSimSun;
-    position:fixed;
-    top: 66%;
-    left: 29%;
-    right: 29%;
-  }
- 
-  .background-userinformation{
-    height: 100%;
-    width: 100%;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
-    position: fixed;
-    background-size: cover;
-  }
-  
+ <style scoped>
+ @import '../assets/css/userinformation.css';
 </style>
