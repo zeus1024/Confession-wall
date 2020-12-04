@@ -20,10 +20,13 @@
 						name:'Post_detail',
 						params:{post_id:item.tid,type:posttype[item.type].type}
 					}">
-					
-						<van-cell><h2>{{item.title}}</h2>
+						
+						<van-cell>
+							<van-tag  class=" type"   plain type="primary">{{posttype[item.type].type}}</van-tag>
+							<h2 class="title">{{item.title}}</h2>
+						
 						<p class="content">{{item.content}}</p>
-						<van-tag  class=" type" round  plain type="primary">{{posttype[item.type].type}}</van-tag>
+						
 						<p class="date">发帖时间：{{item.date}}</p>
 </van-cell>
 					
@@ -135,21 +138,26 @@ methods: {
 
 <style scoped>
 .Mylist{
-	background-color:   #87CEEB;
+	background-color: 	#AFEEEE;
 }
 .list{
-	padding: 2.5%;
-	margin: 2.5%;
-	
+	margin: 2px 2% 2px 2%;
+	width: 96%;
 }
 .type{
-position: absolute;
-left: 70%;
-top:6%;
-	padding: 0.3rem;
+position: relative;
+left:75%;
+padding:2% 1% 2% 1%;
 	font-size: 1rem;
 }
+.title{
+	position: absolute;
+	width: 80%;
+padding: 2%;
+	top:-2%;
+}
 .content{
+	position: relative;
 	padding: 3%;
 
 }

@@ -7,15 +7,13 @@
       <!-- 用户已经登录的显示页面 -->
      
       <div v-if="this.code==1"> 
-      <van-cell>
-       <div class="touxiang">
-         <div class="userinformationpicture"><van-icon name="user-circle-o" size="5rem" /></div>
-         <div class="yonghuming">
-          <div ><van-icon name="star-o" /></div>
-          <div style="font-family:NSimSun"> {{name}}</div>
-          <div class="arrow"><van-icon name="arrow" /></div>
-        </div>
-       </div>
+      <van-cell  class="user">
+         
+          <van-icon class="pic" name="user-circle-o" size="5rem" />
+       
+          <div  class="yonghuming" style="font-family:NSimSun"> {{name}}</div>
+        
+      
 </van-cell>
 <!-- <van-cell>
     <div >头像</div>
@@ -41,9 +39,12 @@
      <!-- 用户未登录的页面 -->
      <div v-if="this.code==2" >
        <p> {{name}}</p>
-       <van-button type="primary" :to="{
+       <van-button class="denglu" round color="#0080ff" plain type="primary" :to="{
          name:'Sign',
-         params:{code:code}}">点击登录</van-button>
+         params:{code:code}}">登录</van-button>
+            <div class="goto_zhuce">
+    <van-button type="primary"  :to="{name:'Register'}" color="linear-gradient(to right, #00ffff, #0080ff)">前往注册</van-button>
+  </div>
        </div>
      </div>
      <div>  
@@ -118,7 +119,7 @@
        }).catch(error => {
        
        Dialog.alert({
-    title: '网路错误',
+    title: '网络错误',
     message: error,
   }).then(() => {
     return;

@@ -41,11 +41,11 @@
        </div>
       <div class="posterborder">
         <van-cell class="content">{{post.content}}</van-cell>
-      <div class="bottompicture-detail">
+     <!--  <div class="bottompicture-detail">
       <van-icon name="share-o" />
       <van-icon name="comment-o" />
       <van-icon name="good-job-o" />
-      </div> 
+      </div>  -->
       </div>
   
       <div class="bottomline-detail"></div>
@@ -64,12 +64,12 @@
           </div>        
         </div>
       <div class="replaycontent">{{item.content}}</div> 
-      <div class="replaybottom">
+    <!--   <div class="replaybottom">
      
           <van-icon name="comment-o" size="1.6rem" />
           <van-icon name="good-job-o" size="1.6rem" />
       </div>
- 
+  -->
   </van-cell>
       </li>
     </ul>
@@ -272,7 +272,7 @@ computed: {},
 }
 </script>
 
-<style type="text/css">
+<style scoped>
 
 .return_post{
 	font-size: 10px;
@@ -302,29 +302,29 @@ computed: {},
 .postdetaildate{
  color: grey;
  font-size: 0.6rem;
- margin-top: 0.8rem;
+ margin-top: 0.3rem;
 }
 
 .postdetaildaxiao{
   width: 3rem;
   height: 3rem;
-  margin-left: 0.8rem;
+  margin-left: 0.3rem;
 }
 
 
 
 .content{
-  margin-top: 1.3rem;
+  margin-top:0.3rem;
 
 }
 
-.bottompicture-detail{
+/*.bottompicture-detail{
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       margin-top: 0.7rem;
       margin-bottom: 0.7rem;
-}
+}*/
 
 .bottomline-detail{
   background-color: #f0f0f0;
@@ -378,13 +378,13 @@ computed: {},
   margin-left: 3rem;
 }
 
-.replaybottom{
+/*.replaybottom{
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
   margin-right: 1rem;
   display: flex;
   justify-content: flex-end;
-}
+}*/
 .reply{
   position: fixed;
   bottom: 8%;

@@ -6,8 +6,8 @@
     <Navbar></Navbar>
   </div>
   <div class="register-background">
-  <div class="register-information">
-    <van-cell-group>
+  <div >
+    <van-cell  class="name">
       <!-- 输出用户名 -->
       <van-field
       v-model="input_name"
@@ -16,25 +16,29 @@
       right-icon="arrow-left"
       placeholder="请输入用户名"
       @blur="check_name"
+     
       />
+    </van-cell>
       <div>
         <!-- 用户名是否被注册 -->
         <van-icon v-if="code==5" name="clear" >该用户名已被注册</van-icon>
         <van-icon v-if="code==1" name="checked" >该用户名可用</van-icon>
       </div>
       <!-- 输入密码 -->
+      <van-cell  class="password">
       <van-field
       v-model="input_password"
+
       clearable
       label="密码"
       left-icon="star"
       right-icon="arrow-left"
       placeholder="请输入密码"
       />
-    </van-cell-group>
+    </van-cell>
   </div>
-  <div class="register-button">
-    <van-button round type="info" @click="register">注册</van-button>
+  <div >
+    <van-button  class="zhuce" round type="primary" color="linear-gradient(to right, #00ffff, #0080ff)" @click="register">注册</van-button>
   </div>
 </div>
 </div>
@@ -72,7 +76,7 @@
         })
         .catch(error=>{
       Dialog.alert({
-    title: '网路错误',
+    title: '网络错误',
     message: error,
   }).then(() => {
     return;
@@ -113,7 +117,7 @@ data.append('password',this.input_password);
       })
         .catch(error=>{
         Dialog.alert({
-    title: '网路错误',
+    title: '网络错误',
     message: error,
   }).then(() => {
     return;
@@ -124,27 +128,34 @@ data.append('password',this.input_password);
   }
 </script>
 
-<style >
+<style scoped>
 
   .register-background{
+    position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
-    position: fixed;
     background-size: cover;
+   background-color:  #AFEEEE;
   }
 
-  .register-information{
-     width: 75%;
-     left: 13%;
-     top: 35%;
-     position: fixed;
+ .name{
+    position:relative;
+ width: 90%;
+ left: 5%;
+ margin-top:40%;
+ padding: 2%;
+ }
+.password{
+   width: 90%;
+  position:relative;
+ left: 5%;
+ margin-top:10%;
+ padding: 2%;
+}
+  .zhuce{
+  position: relative;
+ left: 40%;
+ margin-top: 20%;
+ width: 20%;
   }
-
-  .register-button{
-  position: fixed;
-  top: 52%;
-  left: 39%;
-  }
-
 </style>

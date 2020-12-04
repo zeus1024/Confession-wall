@@ -5,34 +5,36 @@
       <!-- 最上面的导航栏 -->
       <van-nav-bar title="发帖" left-text="返回" left-arrow @click="Return"></van-nav-bar>
     </div>
+<van-divider />
 
-    <div class="addposts-headline">
+    <div >
       <!-- 回复栏 -->
-      <van-field
+      <van-field class="addposts-headline"
       v-model="post.title"
       rows="1"
       autosize
-      label="标题"
+label-width="0"
       type="textarea"
       maxlength="50"
       placeholder="请输入标题"
       show-word-limit
       />
     </div>
+<van-divider />
 
     <div class="addposts-message">
       <van-field
       v-model="post.content"
       rows="5"
       autosize
-      label="内容"
+label-width="0"
       type="textarea"
       maxlength="5000"
       placeholder="请输入内容"
       show-word-limit
       />
     </div>
-
+<van-divider />
       <div class="addposts-section">
         <van-field
         readonly
@@ -52,9 +54,9 @@
         </van-popup>
       </div>
       <!-- 是否提交等 -->
-      <div class="addposts-submit">
-      <van-button type="default" @click="submit">提交</van-button>
-      <van-checkbox v-model="hide">是否匿名</van-checkbox>
+      <div >
+      <van-button  class="addposts-submit" type="primary" @click="submit">提交</van-button>
+      <van-checkbox checked-color="#ee0a24" class="addposts-hide" v-model="hide">匿名</van-checkbox>
     </div>
     </div>
   </template>
@@ -69,7 +71,7 @@
         return{
           value: '',
           code:'',
-          hide:false,
+          hide:true,
           showPicker: false,
           columns: [ '表白', '交友', '失物招领'],
           post:{
@@ -206,47 +208,52 @@
 
         </script>
 
-      <style type="text/css">
+      <style scoped type="text/css">
 
       .background-addposts{
     height: 100%;
     width: 100%;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1169159339,1478749136&fm=26&gp=0.jpg) ;
+    background-color:  #87CEEB;
     position: fixed;
     background-size: cover;
   
       } 
 
       .addposts-headline{
-        position: fixed;
-        width: 70%;
-        top: 18%;
-        left: 15%;
-        right: 15%;
+        position: relative;
+        width: 95%;
+        top: 10%;
+        left: 2.5%;
+        right: 2.5%;
       }
      
       .addposts-message{
-        position: fixed;
-        top: 35%;
-        width: 70%;
-        left: 15%;
-        right: 15%;
+       position:relative;
+        width: 95%;
+        
+        left: 2.5%;
+        right: 2.5%;
 
       }
 
       .addposts-section{
-        position: fixed;
-        top: 68%;
-        left: 15%;
-        right: 15%;
-        width: 70%;
+        position: relative;
+        
+        left: 2.5%;
+        width: 95%;
       }
 
       .addposts-submit{
-        position: fixed;
-        top: 78%;
-        width: 50%;
-        left: 70%;
-        right: 30%;
+        position: relative;
+     margin-top:20%;
+        width: 30%;
+        left: 65%;
+      }
+     .addposts-hide{
+        position: relative;
+        margin-top:-10%;
+        font-size: 1.5rem;
+        left: 5%;
+        width: 25%;
       }
       </style>

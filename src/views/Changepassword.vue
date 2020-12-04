@@ -1,20 +1,20 @@
 <!-- 修改密码 -->
 <template>
-	<div class="backgroundpicture-changepassword">
+	<div class="pa_background">
 		<div>
 			<!-- 使用navbar组件，上面的导航栏 -->
 			<Navbar></Navbar>
 		</div>
-		<div class="changeinformation">
+		
 			<!-- 输入原密码 -->
-			<van-field  v-model="oldword" label="原密码" />
+
+			<van-field class="password1" v-model="oldword" label="原密码" />
 			<!-- 输入新密码 -->
-			<van-field v-model="newword" label="新密码" />
-		</div>
-		<div class="changebutton">
+			<van-field class="password2"  v-model="newword" label="新密码" />
+		
 			<!-- 确定修改密码的按钮 -->
-			<van-button type="info" @click="check" color="linear-gradient(to right, #46A3FF, #97cbff)">修改</van-button>
-		</div>
+			<van-button class="change" type="info" @click="check" color="linear-gradient(to right, #46A3FF, #97cbff)">修改</van-button>
+		
 	</div>
 
 </template>
@@ -93,28 +93,33 @@ data.append('password2',this.newword);
 }
 </script>
 
-<style>
-	.backgroundpicture-changepassword{ 
+<style scoped>
+	 .pa_background{
+    position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
-    position: fixed;
     background-size: cover;
+   background-color:  #AFEEEE;
   }
-    
-    .changeinformation{
-    	position: fixed;
-    	top: 40%;
-    	width: 80%;
-    	left: 10%;
-    	right: 10%;
-    }
- 
-    .changebutton{
-    	position: fixed;
-    	top: 60%;
-    	width: 20%;
-    	left: 40%;
-    	right: 40%;
-    }
+
+ .password1{
+    position:relative;
+ width: 90%;
+ left: 5%;
+ margin-top:40%;
+ padding: 2%;
+ }
+.password2{
+   width: 90%;
+  position:relative;
+ left: 5%;
+ margin-top:10%;
+ padding: 2%;
+}
+  .change{
+  position: relative;
+ left: 40%;
+ margin-top: 20%;
+ width: 20%;
+  }
 </style>

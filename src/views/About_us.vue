@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="bg">
 	<Navbar></Navbar>
 	<div id="word">
 		<p>本项目由华南理工大学电子与信息学院2019级软工第四小组构建而成。</p>
@@ -30,7 +30,14 @@
     },}
     import Navbar from '../components/Navbar.vue';
 </script>
-<style>
+<style scoped>
+.bg{
+	position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+   background-color:  #AFEEEE;
+}
 	#vue{
 		width: 100px;
 		height: 100px;

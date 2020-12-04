@@ -47,11 +47,11 @@
               <div style="color:black;font-style: 1rem">{{item.content}}</div>
             </div>
             
-            <div class="bottompicture">
+            <!-- <div class="bottompicture">
               <van-icon name="share-o" />
               <van-icon name="comment-o" />
               <van-icon name="good-job-o" />
-            </div>   
+            </div>    -->
           
           
         </router-link>
@@ -173,7 +173,8 @@
      .date{
       color: grey;
       font-size: 0.8rem;
-      margin-top: 0.8rem;
+      margin-top: 0.2rem;
+      width: 150%;
      }
 
      .post-circle{
@@ -197,10 +198,10 @@
       font-size: 1.3rem;
      }
 */
-     .bottompicture{
+   /*  .bottompicture{
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       margin-top: 2rem;
-     }
+     }*/
 </style>

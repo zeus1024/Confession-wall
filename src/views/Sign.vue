@@ -1,19 +1,22 @@
 <!-- 登陆界面 -->
 <template>
-  <div><Navbar></Navbar></div>
-  <body>
-
   <div class="backgroundpicture-sign">
-  <div class="zhanghao" >
+  <Navbar></Navbar>
+
+ 
+  <div >
     <!-- 输入用户名和密码 -->
-    <van-cell-group>
+  <van-cell class="name">
       <van-field
       v-model="input_name"
       label="用户名"
       left-icon="friends"
       right-icon="arrow-left"
       placeholder="请输入用户名"
+      
       />
+    </van-cell>
+      <van-cell  class="password">
       <van-field
       v-model="input_password"
       clearable
@@ -21,21 +24,22 @@
       left-icon="star"
       right-icon="arrow-left"
       placeholder="请输入密码"
+     
       />
-    </van-cell-group>
+    </van-cell>
   </div>
 
-  <div class="denglu">
-    <van-button round type="info" @click="sign_in" color="#0080ff" plain >登录</van-button>
+  <div>
+    <van-button   class="denglu" round type="info" @click="sign_in" color="#0080ff" plain >登录</van-button>
   </div>
 
-  <div class="zhuce">
-    <van-button type="primary"  :to="{name:'Register'}" color="linear-gradient(to right, #00ffff, #0080ff)">点击注册</van-button>
+  <div class="goto_zhuce">
+    <van-button type="primary"  :to="{name:'Register'}" color="linear-gradient(to right, #00ffff, #0080ff)">前往注册</van-button>
   </div>
 
 </div>	
 
-</body>
+
 
 </template>
 <script>
@@ -114,7 +118,7 @@
 
 }).catch(error => {
   Dialog.alert({
-    title: '网路错误',
+    title: '网络错误',
     message: error,
   }).then(() => {
     return;
@@ -125,38 +129,42 @@
 
 }
 </script>
-<style>
+<style >
 
   .backgroundpicture-sign{ 
+    position: absolute;
     height: 100%;
     width: 100%;
     background-size: cover;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
-    position: fixed;
+   background-color:  #AFEEEE;
+   
   }
 
- .zhanghao{
- background-color: red;
- width: 75%;
- left: 13%;
- top: 30%;
- position: fixed;
-
-
-
+ .name{
+    position:relative;
+ width: 90%;
+ left: 5%;
+ margin-top:40%;
+ padding: 2%;
  }
-
+.password{
+   width: 90%;
+  position:relative;
+ left: 5%;
+ margin-top:10%;
+ padding: 2%;
+}
   .denglu{
-  top: 44%;
-  left: 42%;
-  position: fixed;
- 
+  position: relative;
+ left: 40%;
+ margin-top: 10%;
+ width: 20%;
   }
 
-  .zhuce{
-  position: fixed;
-  top: 55%;
-  left: 39%;
+  .goto_zhuce{
+  position:relative;
+  top: 10%;
+  left: 3%;
   }
 
 
