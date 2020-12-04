@@ -32,8 +32,10 @@
               <div class="poster">{{item.poster}}</div>
               <div class="date">发帖于{{item.date}}</div>
               </div>
+
+              <div class="post-circle"><div class="post-circle-word">{{posttype[item.type].type}}</div></div>
            
-              <van-tag  class="type" round type="primary">{{posttype[item.type].type}}</van-tag>
+             <!--  <van-tag  class="type" round type="primary">{{posttype[item.type].type}}</van-tag> -->
 
             </div>
             <!-- 头像可以注释掉 -->
@@ -45,8 +47,11 @@
               <div>发帖内容：{{item.content}}</div>
             </div>
             
-            <div class="bottompicture"></div>
-            
+            <div class="bottompicture">
+              <van-icon name="share-o" />
+              <van-icon name="comment-o" />
+              <van-icon name="good-job-o" />
+            </div>   
             <p class="bottomline">_ __ ___ __ _ _ __ ___ __ _ _ __ ___ __ _</p>
 
           </div>
@@ -182,12 +187,31 @@
       margin-top: 0.8rem;
      }
 
-     .type{
+     .post-circle{
+    width:3.7rem;
+    height:3.7rem;
+    font-size: 1.3rem;
+    background-color: #2894ff;
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    font-family:NSimSun;
+    margin-left: 3.2rem;
+  }
+
+     .post-circle-word{
+      margin-top: 0.6rem;
+     }
+
+     /*.type{
       margin-left: 1.7rem;
       font-size: 1.3rem;
      }
-
+*/
      .bottompicture{
-      
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 2rem;
      }
 </style>

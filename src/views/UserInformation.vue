@@ -5,12 +5,16 @@
     </div>
     <div class="background-userinformation">
       <!-- 用户已经登录的显示页面 -->
-      <div style="font-size: 1px;text-align:center;color: gray;margin-top: 10px;">华南理工大学  South  China  University  of Technology</div>
-      <div v-if="this.code==1">
+     
+      <div v-if="this.code==1"> 
       <van-cell>
        <div class="touxiang">
-         <div class="circle">头像</div>
-         <div class="yonghuming"><p style="font-family:NSimSun"> 用户名为：{{name}}</p></div>
+         <div class="userinformationpicture"><van-icon name="user-circle-o" size="5rem" /></div>
+         <div class="yonghuming">
+          <div ><van-icon name="star-o" /></div>
+          <div style="font-family:NSimSun"> {{name}}</div>
+          <div class="arrow"><van-icon name="arrow" /></div>
+        </div>
        </div>
 </van-cell>
 <!-- <van-cell>
@@ -31,7 +35,7 @@
     <van-cell title="关于我们" ></van-cell>
 </van-cell-group>
        </div>
-      
+       <div class="scut">华南理工大学  South  China  University  of Technology</div>
 
      </div>
      <!-- 用户未登录的页面 -->

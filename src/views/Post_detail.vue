@@ -25,21 +25,46 @@
     </div>
     <!-- 配置服务器版本 -->
     <!-- 帖子详情页，span等元素均要更换和设置CSS -->
-    <div >
-      <div>
-        <span>发帖者：{{post.poster}}</span>
-        <h2>标题：{{post.title}}</h2>
-        <p>内容：{{post.content}}</p>
-        <p>类型：{{post_type}}</p>
-        <p>日期：{{post.date}}</p>   	
+    <div  >
+      <div class="headline">{{post.title}}</div>
+
+      <div class="postdetail-head">
+       <div><img class="postdetaildaxiao" src="../assets/logo.png"></div>
+       <div>
+         <div class="postdetailposter">{{post.poster}}</div>
+         <div class="postdetaildate">{{post.date}}</div>
+       </div>
+       <div class="star"><van-button round type="info" size="small" color="#d3a4ff">关注</van-button></div>
+       </div>
+      <div class="posterborder">
+        <div class="content">内容：{{post.content}}</div>
+      <div class="bottompicture-detail">
+      <van-icon name="share-o" />
+      <van-icon name="comment-o" />
+      <van-icon name="good-job-o" />
+      </div> 
       </div>
+  
+      <div class="bottomline-detail"></div>
       <ul>
         <!-- 回复的 -->
         <li v-for="item in  post.reply"
         :key="item.rid">
-        <span>回复用户：{{item.poster}}</span>
-        <p>内容：{{item.content}}</p>
-        <p>日期：{{item.date}}</p>
+        <div class="replayborder">
+        <div class="replay1">
+          <div ><img class="replaydaxiao" src="../assets/logo.png"></div>
+          <div class="replayposter">
+            <div class="replayname">{{item.poster}}</div>
+            <div class="replaydate">{{item.date}}</div>
+          </div>        
+        </div>
+      <div class="replaycontent">{{item.content}}</div> 
+      <div class="replaybottom">
+          <van-icon name="share-o" size="1.6rem" />
+          <van-icon name="comment-o" size="1.6rem" />
+          <van-icon name="good-job-o" size="1.6rem" />
+      </div>
+    </div>
       </li>
     </ul>
 
@@ -56,8 +81,8 @@
     type="textarea"
     placeholder="请输入回复"/>
     <!--输入回复的按钮和匿名按钮  -->
-    <van-button size="small" type="primary" @click="submit">回复</van-button>
-    <van-checkbox v-model="hide">是否匿名</van-checkbox>
+    <div class="replaybutton"><van-button size="small"  @click="submit" round type="info" color="#d3a4ff">发表</van-button></div>
+    <div class="replayniming"><van-checkbox v-model="hide">是否匿名</van-checkbox></div>
   </div>
 </div>
 </template>
@@ -244,6 +269,115 @@ computed: {},
 <style type="text/css">
 .return_post{
 	font-size: 10px;
-
 }	
+
+.headline{
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.postdetail-head{
+  display: flex;
+  flex-direction: row;
+  flex-flow: start;
+}
+
+.postdetailposter{
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
+  color: black;
+}
+
+.postdetaildate{
+ color: grey;
+ font-size: 0.6rem;
+ margin-top: 0.8rem;
+}
+
+.postdetaildaxiao{
+  width: 3rem;
+  height: 3rem;
+  margin-left: 0.8rem;
+}
+
+.star{
+  margin-left: 6.5rem;
+  margin-top: 0.4rem;
+}
+
+.content{
+  margin-top: 1.3rem;
+
+}
+
+.bottompicture-detail{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 0.7rem;
+      margin-bottom: 0.7rem;
+}
+
+.bottomline-detail{
+  background-color: #f0f0f0;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.posterborder{
+  border-style: solid;
+  border-color: #e0e0e0;
+}
+
+.replay1{
+  display: flex;
+  flex-direction: row;
+  flex-flow: start;
+}
+
+.replayname{
+  font-size: 0.9rem;
+  padding-top: 0.5rem;
+  color: black;}
+
+.replaydate{
+ color: grey;
+ font-size: 0.6rem;
+ margin-top: 0.8rem; 
+ margin-top: 0.3rem; 
+}
+
+.replaydaxiao{
+  width: 3rem;
+  height: 3rem;
+}
+
+.replayborder{
+  width: 96%;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-style: solid;
+  border-color: #e0e0e0;
+}
+
+.replaycontent{
+  margin-left: 3rem;
+}
+
+.replaybottom{
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.replaybutton{
+  margin-left: 80%;
+}
+
+.replayniming{
+  margin-left: 70%;
+}
 </style>
