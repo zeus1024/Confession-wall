@@ -12,24 +12,23 @@
 				:key="item.tid"
 				:title="item.type"
 				>
-				<ul>
-					<li v-for="item in mypost" 
-					:key="item.tid">
+				
+
+					<div class="list" v-for="item in mypost" 
+					:key="item.tid" style="color: black" v-show="active == item.type || active ==0" @click="goto_detail">
 					<router-link :to="{
 						name:'Post_detail',
 						params:{post_id:item.tid,type:posttype[item.type].type}
 					}">
-					<div v-show="active == item.type || active ==0" @click="goto_detail">
-						<span>发帖人：{{item.poster}}</span>
-						<h2>标题：{{item.title}}</h2>
-						<p>发帖内容：{{item.content}}</p>
-						<p>类型：{{posttype[item.type].type}}</p>
-						<p>日期：{{item.date}}</p>
-
-					</div>
+					
+						<van-cell><h2>{{item.title}}</h2>
+						<p class="content">{{item.content}}</p>
+						<van-tag  class=" type" round  plain type="primary">{{posttype[item.type].type}}</van-tag>
+						<p class="date">发帖时间：{{item.date}}</p>
+</van-cell>
+					
 				</router-link>
-			</li>
-		</ul>
+			</div>
 	</van-tab>
 </van-tabs>
 </div>
@@ -134,6 +133,31 @@ methods: {
 
 </script>
 
-<style>
+<style scoped>
+.Mylist{
+	background-color:   #87CEEB;
+}
+.list{
+	padding: 2.5%;
+	margin: 2.5%;
+	
+}
+.type{
+position: absolute;
+left: 70%;
+top:6%;
+	padding: 0.3rem;
+	font-size: 1rem;
+}
+.content{
+	padding: 3%;
 
+}
+.date{
+	position: relative;
+	left: 0%;
+	top: 0%;
+	font-size: 0.6rem;
+	height: 10%;
+}
 </style>

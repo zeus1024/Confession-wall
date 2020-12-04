@@ -10,27 +10,27 @@
         :title="item.type">
          <div class="spread">
           <!-- 切换是否显示内容，要修改button成为别的类型 -->
-          <button v-show="show_content==false " @click="show_content=!show_content">点击展开帖子详细内容</button>
-          <button v-show="show_content==true" @click="show_content=!show_content">点击收回帖子详细内容</button>
+          <button v-show="show_content==false " @click="show_content=!show_content">展开内容</button>
+          <button v-show="show_content==true" @click="show_content=!show_content">隐藏内容</button>
         </div>
         
         <!-- 循环帖子列表， 可换成list -->
         <ul>
-          <li class="list" v-for="item in postdata"  :key="item.tid">
+          <li class="list" v-for="item in postdata"  :key="item.tid" v-show="active == item.type || active ==0">
+            <van-cell class="list_cell">
             <router-link :to="{
              name:'Post_detail',
              params:{post_id:item.tid,type:posttype[item.type].type}
            }">
            <!-- 每个帖子的显示，里面的span，h2这些，换成更加高级的标签 -->
-           <p class="topline">_ __ ___ __ _ _ __ ___ __ _ _ __ ___ __ _</p>
-           <div v-show="active == item.type || active ==0">
+        
 
             <div class="posts-head"> 
               <div><img class="daxiao" src="../assets/logo.png"></div>
 
               <div>
               <div class="poster">{{item.poster}}</div>
-              <div class="date">发帖于{{item.date}}</div>
+              <div class="date">{{item.date}}</div>
               </div>
 
               <div class="post-circle"><div class="post-circle-word">{{posttype[item.type].type}}</div></div>
@@ -40,11 +40,11 @@
             </div>
             <!-- 头像可以注释掉 -->
             
-            <h2 style="color: black; font-size: 1.5rem;">标题:{{item.title}}</h2>
+            <h2 style="color:black; font-size: 1.5rem;">{{item.title}}</h2>
             
             <!-- 是否显示发帖内容 -->
             <div v-show="show_content==true">
-              <div>发帖内容：{{item.content}}</div>
+              <div style="color:black;font-style: 1rem">{{item.content}}</div>
             </div>
             
             <div class="bottompicture">
@@ -52,16 +52,16 @@
               <van-icon name="comment-o" />
               <van-icon name="good-job-o" />
             </div>   
-            <p class="bottomline">_ __ ___ __ _ _ __ ___ __ _ _ __ ___ __ _</p>
-
-          </div>
+          
+          
         </router-link>
+      </van-cell>
       </li>
     </ul>
   </van-tab>
 </van-tabs>
 </div>
-
+<van-cell class="de_buttom">滑到底了</van-cell>
 </div>  
 
 
@@ -134,9 +134,8 @@
     .background-posts{
      height: 100%;
     width: 100%;
-    background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2193922693,786190290&fm=26&gp=0.jpg) ;
-    position: fixed;
-    background-size: cover;
+   background-color:  #87CEEB;
+ 
     }
 
     .posts-head{
@@ -148,12 +147,9 @@
 
     .list{
       width: 90%;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      border-style: ridge;
-      border-color: #97cbff;
+      margin:2% 5% 2% 5%;
     }
-    
+   
     .poster{
       font-size: 1rem;
       padding-top: 0.5rem;
@@ -166,14 +162,7 @@
       height: 4rem;
     }
 
-    .bottomline{
-      text-align: center;
-    }
-    
-     .topline{
-      text-align: center;
-      margin-top: 5px;
-    }
+  
 
      .spread{
        width: 50%;
@@ -188,19 +177,19 @@
      }
 
      .post-circle{
-    width:3.7rem;
-    height:3.7rem;
-    font-size: 1.3rem;
+    width:5rem;
+    height:2rem;
+    font-size: 1rem;
     background-color: #2894ff;
     color: black;
-    border-radius: 50%;
+   
     text-align: center;
     font-family:NSimSun;
     margin-left: 3.2rem;
   }
 
      .post-circle-word{
-      margin-top: 0.6rem;
+      margin-top: 10%;
      }
 
      /*.type{

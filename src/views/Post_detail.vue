@@ -10,6 +10,7 @@
       left-arrow
       @click-left="Return"
       @click-right="showPicker = true"
+   
       />
     </div>
 
@@ -26,18 +27,20 @@
     <!-- 配置服务器版本 -->
     <!-- 帖子详情页，span等元素均要更换和设置CSS -->
     <div  >
+      <van-cell>
       <div class="headline">{{post.title}}</div>
-
+</van-cell>
       <div class="postdetail-head">
        <div><img class="postdetaildaxiao" src="../assets/logo.png"></div>
        <div>
          <div class="postdetailposter">{{post.poster}}</div>
          <div class="postdetaildate">{{post.date}}</div>
+         <van-button class="star" round type="info" size="small" color="#d3a4ff">关注</van-button>
        </div>
-       <div class="star"><van-button round type="info" size="small" color="#d3a4ff">关注</van-button></div>
+     
        </div>
       <div class="posterborder">
-        <div class="content">内容：{{post.content}}</div>
+        <van-cell class="content">{{post.content}}</van-cell>
       <div class="bottompicture-detail">
       <van-icon name="share-o" />
       <van-icon name="comment-o" />
@@ -46,11 +49,13 @@
       </div>
   
       <div class="bottomline-detail"></div>
+      <van-cell id="plq">评论区</van-cell>
       <ul>
         <!-- 回复的 -->
         <li v-for="item in  post.reply"
         :key="item.rid">
-        <div class="replayborder">
+      
+        <van-cell class="replayborder">
         <div class="replay1">
           <div ><img class="replaydaxiao" src="../assets/logo.png"></div>
           <div class="replayposter">
@@ -60,29 +65,31 @@
         </div>
       <div class="replaycontent">{{item.content}}</div> 
       <div class="replaybottom">
-          <van-icon name="share-o" size="1.6rem" />
+     
           <van-icon name="comment-o" size="1.6rem" />
           <van-icon name="good-job-o" size="1.6rem" />
       </div>
-    </div>
+ 
+  </van-cell>
       </li>
     </ul>
-
+<van-cell class="de_buttom">滑到底了</van-cell>
 
   </div>
   <!-- 配置服务器的版本 -->
   <!-- 输入回复的框 -->
-  <div  @click="check_sign">
+  <div class="reply"  @click="check_sign">
     <van-field
     v-model="input_reply"
     rows="1"
     autosize
-    label="回复"
+label-width="0"
     type="textarea"
-    placeholder="请输入回复"/>
+    placeholder="请输入回复"
+    id="reply_input"/>
     <!--输入回复的按钮和匿名按钮  -->
-    <div class="replaybutton"><van-button size="small"  @click="submit" round type="info" color="#d3a4ff">发表</van-button></div>
-    <div class="replayniming"><van-checkbox v-model="hide">是否匿名</van-checkbox></div>
+    <van-button  id="reply_button" size="small"  @click="submit" round type="info" color="#d3a4ff">发表</van-button>
+  <van-checkbox  id="reply_hide" v-model="hide">匿名</van-checkbox>
   </div>
 </div>
 </template>
@@ -179,7 +186,6 @@ axios.get('/php/t/delete.php',{       // 还可以直接把参数拼接在url后
   return;
 }); 
 });
-
 },
 check_sign(){
 axios.get('/php/user/userquery.php',{       // 还可以直接把参数拼接在url后边
@@ -267,6 +273,7 @@ computed: {},
 </script>
 
 <style type="text/css">
+
 .return_post{
 	font-size: 10px;
 }	
@@ -276,7 +283,10 @@ computed: {},
   font-weight: bold;
   margin-bottom: 1rem;
 }
-
+#plq{
+  font-size: 1.5rem;
+  color: black;
+}
 .postdetail-head{
   display: flex;
   flex-direction: row;
@@ -301,10 +311,7 @@ computed: {},
   margin-left: 0.8rem;
 }
 
-.star{
-  margin-left: 6.5rem;
-  margin-top: 0.4rem;
-}
+
 
 .content{
   margin-top: 1.3rem;
@@ -328,8 +335,14 @@ computed: {},
 .posterborder{
   border-style: solid;
   border-color: #e0e0e0;
+  width: 95%;
+  height: auto;
 }
-
+.star{
+  position: absolute;
+  right: 10%;
+  top:15%;
+}
 .replay1{
   display: flex;
   flex-direction: row;
@@ -372,12 +385,31 @@ computed: {},
   display: flex;
   justify-content: flex-end;
 }
+.reply{
+  position: fixed;
+  bottom: 8%;
+  width: 90%;
+ z-index: 11;
+}
+#reply_input{
+width: 80%;
+position: absolute;
+left: 12%;
 
-.replaybutton{
-  margin-left: 80%;
+}
+#reply_button{
+  position: absolute;
+  left: 93%;
 }
 
-.replayniming{
-  margin-left: 70%;
+#reply_hide{
+  position: absolute;
+  left: 0%;
+  padding-top: 3%;
+}
+.de_buttom{
+  position: absolute;
+  height: 15%;
+  padding-left: 40%;
 }
 </style>

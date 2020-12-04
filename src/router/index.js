@@ -7,6 +7,8 @@ import Sign from "../views/Sign.vue";
 import Register from "../views/Register.vue";
 import Changepassword from "../views/Changepassword.vue";
 import Mylist from "../views/Mylist.vue";
+import About_us from "../views/About_us.vue";
+
 // 修改页面路由
 
 const routes = [
@@ -59,7 +61,12 @@ const routes = [
     component: Mylist
     // 引入页面路由
   },
-
+ {
+    path: "/About_us",
+    name: "About_us",
+    component: About_us
+    // 引入页面路由
+  },
 
   // {
   //   path: "/about",

@@ -11,6 +11,8 @@ import { Picker } from 'vant';
 import { Toast } from 'vant';
 import { Popup } from 'vant';
 import { Dialog } from 'vant';
+import { Divider } from 'vant';
+
 import { Tag } from 'vant';
 import { Checkbox, CheckboxGroup } from 'vant';
 import { Cell, CellGroup } from 'vant';
@@ -33,6 +35,7 @@ createApp(App)
 .use(TabbarItem)
 .use(Field)
 .use(Toast)
+.use(Divider)
 .use(Icon)
 .use(Picker)
 .use(Popup)

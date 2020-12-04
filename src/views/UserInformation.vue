@@ -29,10 +29,10 @@
        </div> -->
        <div>
    <van-cell-group >
-  <van-cell class="operate" title="我的帖子" :to="{name:'Mylist'}"></van-cell>
-  <van-cell title="修改密码" :to="{name:'Changepassword'}"></van-cell>
+  <van-cell class="operate" title="我的帖子" is-link :to="{name:'Mylist'}"></van-cell>
+  <van-cell title="修改密码"  is-link :to="{name:'Changepassword'}"></van-cell>
    <van-cell title="注销登录" @click="cancellation"></van-cell>
-    <van-cell title="关于我们" ></van-cell>
+    <van-cell title="关于我们" is-link :to="{name:'About_us'}" ></van-cell>
 </van-cell-group>
        </div>
        <div class="scut">华南理工大学  South  China  University  of Technology</div>
